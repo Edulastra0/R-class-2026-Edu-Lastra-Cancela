@@ -1,0 +1,5 @@
+---
+title: "R_tutorial_1"
+author: "Edu Lastra Cancela"
+date: "`r format(Sys.time(), '%Y-%b-%d, %I:%M %p')`"
+---
