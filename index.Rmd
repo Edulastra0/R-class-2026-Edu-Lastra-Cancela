@@ -14,3 +14,5 @@ date: "`r format(Sys.time(), '%Y-%b-%d, %I:%M %p')`"
 ```{r echo=FALSE}
 
 ```
+## R Tutorials:
+### [R_tutorial_1](course_6994/webpage/R_tutorial_1.html)
