@@ -15,5 +15,5 @@ date: "`r format(Sys.time(), '%Y-%b-%d, %I:%M %p')`"
 
 ```
 ## R Tutorials:
-### [R_tutorial_1](R_tutorial_1.html)
+### [R_tutorial_1](R_tutorial_1.rmd)
 
