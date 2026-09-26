@@ -1,0 +1,117 @@
+---
+title: "R_tutorial_2"
+author: "Edu Lastra Cancela"
+date: "`r format(Sys.time(), '%Y-%b-%d, %I:%M %p')`"
+---
+```{r}
+library("dplyr")
+# install.packages("gapminder")
+library("gapminder")
+data("gapminder")
+head("gapminder")
+```
+# Q1
+```{r}
+class("gapminder")
+```
+# Q2
+```{r}
+library("gapminder")
+head("gapminder")
+brinco_pensador<- gapminder |> 
+  filter(lifeExp < 29)
+brinco_pensador
+```
+#Q3
+```{r}
+Ruanda_1979<- gapminder |> 
+  filter(country== "Rwanda",
+         year > 1979)
+Ruanda_1979
+```
+
+
+
+
+
+
+#Q4
+```{r}
+monii<- gapminder |> 
+  select(-'gdpPercap')
+monii
+```
+
+
+
+
+
+
+#Q5
+```{r}
+vida_larga<-gapminder |>  arrange(lifeExp)
+vida_larga
+```
+
+
+
+
+
+
+#Q6
+```{r}
+vida_corta<-gapminder |>  arrange(desc(lifeExp))
+vida_corta
+```
+
+
+
+
+
+
+#Q7
+```{r}
+ vida_año<- gapminder |> 
+    select(year, lifeExp)
+vida_año
+```
+
+
+
+
+
+
+#Q8
+```{r}
+cambo<- gapminder |> 
+  filter(country== "Cambodia") |> 
+        select(year,lifeExp)
+cambo
+```
+
+
+
+
+
+
+#Q9
+```{r}
+library("gapminder")
+library("dplyr")
+head(gapminder)
+frica<- gapminder |> 
+  filter(continent== "Africa") |> 
+  select(country)
+frica
+```
+
+
+
+
+
+
+#Q10
+```{r}
+brinco_mental_nuevo <- gapminder |>  mutate(lifeExp_months = lifeExp*12)
+brinco_mental_nuevo
+```
