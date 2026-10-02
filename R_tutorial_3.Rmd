@@ -1,0 +1,75 @@
+---
+title: "R_tutorial_3"
+author: "Edu Lastra Cancela"
+date: "`r format(Sys.time(), '%Y-%b-%d, %I:%M %p')`"
+---
+```{r}
+library(ggplot2)
+data("trees")
+head(trees)
+```
+
+# Q1. Histograma de Grosor
+```{r}
+hist(trees$Girth,
+     main = "Distribución de grosor en arbolitos",
+     xlab= "Grosor",
+     ylab= "Frecuencia",
+     col = "magenta2",
+     border = "darkgreen")
+```
+
+
+
+
+
+
+# Q2. Histograma de Volumen
+```{r}
+hist(trees$Volume,
+     main = "Distribución de volumen en arbolitos",
+     xlab= "Volumen",
+     ylab= "Frecuencia",
+     col = "magenta2",
+     border = "darkgreen")
+```
+
+
+
+
+
+
+# Q3. Grafico de Puntos de Grosor y Volumen
+```{r}
+plot(
+  trees$Girth ~ trees$Volume,
+  type = "p",                   
+  col = "magenta",             
+  lwd = 2,                     
+  xlab = "Volumen",  
+  ylab = "Grosor", #y-axis 
+  main = "Relación entre Volumen y Grosor de Arbolitos"
+  )
+```
+
+
+
+
+
+
+# Q4. Shapiro-Wilk para volumen
+```{r}
+shapiro.test(trees$Volume)
+```
+##p-value < 0.05 asi que no es normalmente distribuido
+
+
+
+
+
+
+# Q5. Shapiro-Wilk para Grosor
+```{r}
+shapiro.test(trees$Girth)
+```
+##p-value > 0.05, asi que si esta distribuído normalmente (aunque no lo parece en el histograma)
