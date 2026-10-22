@@ -22,3 +22,4 @@ date: "`r format(Sys.time(), '%Y-%b-%d, %I:%M %p')`"
 ## Examenes:
 ### [Midterm](Midterm.html)
 
+
