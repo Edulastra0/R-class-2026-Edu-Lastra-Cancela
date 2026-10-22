@@ -19,3 +19,6 @@ date: "`r format(Sys.time(), '%Y-%b-%d, %I:%M %p')`"
 ### [R_tutorial_2](R_tutorial_2.html) 
 ### [R_tutorial_3](R_tutorial_3.html)
 
+## Examenes:
+### [Midterm](Midterm.html)
+

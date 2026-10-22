@@ -1,0 +1,73 @@
+---
+title: "Midterm_1"
+author: "Edu Lastra Cancela"
+date: "`r format(Sys.time(), '%Y-%b-%d, %I:%M %p')`"
+---
+
+
+```{r}
+#install.packages("tidyverse")
+library(tidyverse)
+#install.packages("dplyr")
+library(dplyr)
+#install.packages("aod")
+library(aod)
+```
+
+```{r}
+msleep <- glimpse(msleep)
+storms <- storms
+lizards <- lizards
+
+head(msleep)
+```
+```{r}
+head(storms)
+```
+```{r}
+head(lizards)
+```
+# Q1. Mammals sleep dataset
+```{r}
+msleep |>
+  filter(awake >= 12)
+```
+# Q2. Mutate msleep
+```{r}
+new_msleep <- msleep |> 
+  mutate(
+    percent_day_awake = (awake/24) * 100)
+
+new_msleep |>
+  select(percent_day_awake, awake, everything())
+```
+# Q3 Group_by y Summarise Storms
+```{r}
+storms |> 
+  group_by(year) |> 
+  summarise(num_storms=n())
+```
+# Q4 filter and arrange storms
+```{r}
+windy_storms <- storms |>
+  filter(wind > 50) 
+
+windy_storms |>
+  arrange(desc(wind))
+```
+# Q5 Which site and diameter has the highest total grahami in lizards
+```{r}
+lizards |>
+  group_by(Site, Diameter) |>
+  summarise(total_g = sum(grahami))|>
+  arrange(desc(total_g))
+```
+# Q6 boxplot opalinus counts distribution under diff. light conditions
+```{r}
+library(ggplot2)
+ggplot(data=lizards,
+       aes(x=opalinus, y=Site)) +
+       geom_boxplot(aes(fill="hola"))
+```
+
+
