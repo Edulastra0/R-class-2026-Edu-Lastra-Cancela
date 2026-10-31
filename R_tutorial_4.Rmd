@@ -1,0 +1,46 @@
+---
+title: "R_tutorial_4"
+author: "Edu Lastra Cancela"
+date: "`r format(Sys.time(), '%Y-%b-%d, %I:%M %p')`"
+---
+
+
+# Q.1
+```{r}
+library(tidyverse)
+library(lessR)
+library(readxl)
+library(BSDA)
+b_p <- read_xlsx("butterflies_pesticides.xlsx")
+groups  <- b_p[[1]]
+wing_length <- b_p[[2]]
+cntrl_length <- wing_length[groups == "group1"]
+exp_length <- wing_length[groups == "group2"]
+shapiro.test(cntrl_length)
+shapiro.test(exp_length)
+```
+# Q.2
+```{r}
+cntrl_group <- b_p$`Wing Length`[b_p$Group =="group1"]
+exp_group <- b_p$`Wing Length`[b_p$Group =="group2"]
+var.test(cntrl_group, exp_group)
+```
+# Q.3
+```{r}
+t.test(cntrl_group, exp_group, var.equal = FALSE)
+```
+# Q.4
+```{r}
+boxplot(cntrl_group, exp_group, 
+        main = "Wing length in butterflies exposed to pestices",
+        xlab = "Control group                                 Pesticide group",
+        ylab = "Wing length",
+        col = "lightblue",
+        border = "darkblue"
+)
+```
+# Q.5
+```{r}
+# I analyzed if there was a difference in wing length between butterflies exposed or not to pesticides. I started by doing a Shapiro test for normality for both the experimental and control group, the results showed that both are distributed normally ( control group p-value = 0.146; experimental group p-value = 0.6247). An equal variance test was done between the groups and results showed that there were significant differences in their variance (p-value = 0.005512). To see if there are significant differences between the groups a Welch two sample t-test was done; results suggest that there is difference within the groups (p-value = 0.000172). Visualizing the data with a box plot it is clear that the the experimental groups shows a typically shorter wing length. All these results suggest that exposure to pesticides prevents butterflies from growing their wings to the same length controls can.
+```
+
